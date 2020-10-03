@@ -49,7 +49,7 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 
     //AppLifecycle
-    api 'com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:1.0.3'
+    api 'com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:1.0.4'
 
     //业务组件、业务基础组件 共同依赖的库（网络库、图片库等）,且都是使用api
 
