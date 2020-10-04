@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
+//butterknife在Library中使用需要添加插件 使用R2
+apply plugin: 'com.jakewharton.butterknife'
 
 //我这里没有使用私有服务maven，而是发arr包到JitPack，意思一样的~
 //apply from: 'maven_push.gradle'
 // JitPack Maven
 apply plugin: 'com.github.dcendents.android-maven'
 // Your Group
-group='com.github.hufeiyang'
+group = 'com.github.hufeiyang'
 
 android {
     compileSdkVersion 29
@@ -34,12 +36,18 @@ android {
         }
     }
 
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -52,5 +60,9 @@ dependencies {
     api 'com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:1.0.4'
 
     //业务组件、业务基础组件 共同依赖的库（网络库、图片库等）,且都是使用api
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
 }
